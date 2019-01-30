@@ -31,7 +31,8 @@ public class InventoryUIManager : MonoBehaviour
     }
 
     /*
-     * Called when the Update ui event fires on the inventory manager 
+     * Called when the Update ui event fires on the inventory manager. Loops through all items in the inventory and assigns the correct UI sprites
+     * and an item to each slot
      */
     private void UpdateUI()
     {
@@ -45,18 +46,35 @@ public class InventoryUIManager : MonoBehaviour
                 Image spriteRenderer = inventoryGrid[i, j].GetComponent<Image>();
 
                 slot.containedItem = inventoryMatrix[i, j];
-                if (inventoryMatrix[i, j] == null)
-                {
-                    spriteRenderer.sprite = emptySlotSprite;
-                }
-                else
-                {
-                    spriteRenderer.sprite = inventoryMatrix[i, j].uiSprite;
-                }
+                spriteRenderer.sprite = ChooseUIImage(inventoryMatrix[i,j], inventoryMatrix, i, j);
             }
         }
+    }
+    /*
+     * Returns the correct sprite for the specified item based on 
+     */
+    private Sprite ChooseUIImage(ItemDefinition item, ItemDefinition[,] inventoryMatrix, int xIndex, int yIndex)
+    {
 
+        if (item == null)
+            return emptySlotSprite;
 
+        if (item.SlotType == Constants.InventorySlotType.Single)
+            return item.uiSprite;
+        
+        if(item.SlotType == Constants.InventorySlotType.Horizontal)
+        {
+            if (xIndex < inventoryMatrix.GetLength(0) - 1 && inventoryMatrix[xIndex + 1, yIndex] == item)
+                return item.uiSprites[0];
+            return item.uiSprites[1];
+        }
+        if (item.SlotType == Constants.InventorySlotType.Vertical)
+        {
+            if (yIndex < inventoryMatrix.GetLength(1) - 1 && inventoryMatrix[xIndex, yIndex + 1] == item)
+                return item.uiSprites[0];
+            return item.uiSprites[1];
+        }
 
+        return emptySlotSprite;
     }
 }

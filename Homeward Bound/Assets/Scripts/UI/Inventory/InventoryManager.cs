@@ -67,7 +67,7 @@ public class InventoryManager : SerializedMonoBehaviour
     [Button]
     public bool AddItemToInventory(ItemDefinition itemToAdd)
     {
-        if (itemToAdd == null || !CanAddToInventory(itemToAdd.slotType))
+        if (itemToAdd == null || !CanAddToInventory(itemToAdd.SlotType))
         {
             return false;
         }
@@ -92,14 +92,14 @@ public class InventoryManager : SerializedMonoBehaviour
                     }
                     else if(slotType == Constants.InventorySlotType.Horizontal)
                     {
-                        if(i <= inventoryItemArray.GetLength(0) -2 && inventoryItemArray[i,j] == null && inventoryItemArray[i+1,j] == null)
+                        if(i < inventoryItemArray.GetLength(0) -1 && inventoryItemArray[i,j] == null && inventoryItemArray[i+1,j] == null)
                         {
                             return new List<ValueTuple<int, int>>() { new ValueTuple<int, int>(i,j), new ValueTuple<int, int>(i+1, j)};
                         }
                     }
                     else if(slotType == Constants.InventorySlotType.Vertical)
                     {
-                        if (j <= inventoryItemArray.GetLength(1) - 2 && inventoryItemArray[i, j] == null && inventoryItemArray[i, j + 1] == null)
+                        if (j < inventoryItemArray.GetLength(1) - 1 && inventoryItemArray[i, j] == null && inventoryItemArray[i, j + 1] == null)
                         {
                             return new List<ValueTuple<int, int>>() { new ValueTuple<int, int>(i, j), new ValueTuple<int, int>(i, j + 1) };
                         }
@@ -149,19 +149,19 @@ public class InventoryManager : SerializedMonoBehaviour
         void PlaceItemInSlot(ItemDefinition item)
         {
 
-            if(item.slotType != Constants.InventorySlotType.Single)
+            if(item.SlotType != Constants.InventorySlotType.Single)
             {
-                RecalculateSlotPositions(item.slotType);
+                RecalculateSlotPositions(item.SlotType);
             }
 
-            List<ValueTuple<int, int>> openPositions = IsOpenSlot(item.slotType);
+            List<ValueTuple<int, int>> openPositions = IsOpenSlot(item.SlotType);
 
             if (openPositions.Count == 0)
             {
                 return;
             }
 
-            if (item.slotType == Constants.InventorySlotType.Single)
+            if (item.SlotType == Constants.InventorySlotType.Single)
             {
                 inventoryItemArray[openPositions[0].Item1, openPositions[0].Item2] = item;
                 currentInventorySlotsOccupied++;
@@ -197,7 +197,7 @@ public class InventoryManager : SerializedMonoBehaviour
         }
 
         //number of slots occupied
-        if(itemToRemove.slotType == Constants.InventorySlotType.Horizontal || itemToRemove.slotType == Constants.InventorySlotType.Vertical)
+        if(itemToRemove.SlotType == Constants.InventorySlotType.Horizontal || itemToRemove.SlotType == Constants.InventorySlotType.Vertical)
         {
             currentInventorySlotsOccupied -= 2;
         }
