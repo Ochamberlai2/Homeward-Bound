@@ -35,6 +35,11 @@ public class EventManager : MonoBehaviour
     {
         itemUsed += EventTriggered;
     }
+
+    public void Start()
+    {
+        DialogueController.Instance.ShowDialogue(CurrentScenario.dialogueKey);
+    }
     public void OnDisable()
     {
         itemUsed -= EventTriggered;
