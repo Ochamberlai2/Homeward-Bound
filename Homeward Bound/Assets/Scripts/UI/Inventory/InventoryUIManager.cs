@@ -134,7 +134,7 @@ public class InventoryUIManager : MonoBehaviour
         inventorySelectedItem = selectedItem;
         if (inventorySelectedItem == null)
         {
-            inventoryButtons.SetActive(false);
+            CloseInventoryButtons();
         }
         else if (!inventoryButtons.activeInHierarchy)
         {
@@ -153,8 +153,11 @@ public class InventoryUIManager : MonoBehaviour
         {
             InventoryManager.Instance.RemoveItemFromInventory(inventorySelectedItem);
             inventorySelectedItem = null;
-            inventoryButtons.SetActive(false);
+            CloseInventoryButtons();
         }
-
+    }
+    public void CloseInventoryButtons()
+    {
+        inventoryButtons.SetActive(false);
     }
 }
