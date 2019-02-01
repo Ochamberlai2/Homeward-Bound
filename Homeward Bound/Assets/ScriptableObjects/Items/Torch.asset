@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecfcc466fd338014480eb27cbdddd994, type: 3}
-  m_Name: Log
+  m_Name: Torch
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: c56a3f445ed703b4fafffd1bd12a9d88, type: 3}
+  itemSprite: {fileID: 21300000, guid: 7a73c965e81cf884489ffc96b2a5f0cb, type: 3}
   uiSprite: {fileID: 0}
   uiSprites:
-  - {fileID: 21300000, guid: 1102ac71337323d40892b95d6f4f262f, type: 3}
-  - {fileID: 21300002, guid: 1102ac71337323d40892b95d6f4f262f, type: 3}
-  SlotType: 1
+  - {fileID: 21300000, guid: 81775b71b6b5d504db95a168fdcbc143, type: 3}
+  - {fileID: 21300002, guid: 81775b71b6b5d504db95a168fdcbc143, type: 3}
+  SlotType: 2

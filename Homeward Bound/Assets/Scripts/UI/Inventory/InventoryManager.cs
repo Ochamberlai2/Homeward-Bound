@@ -3,20 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/*
+ * Class to handle the back-end (non UI) side of the inventory system
+ */
 public class InventoryManager : SerializedMonoBehaviour
 {
-
-    [SerializeField]
-    private int maxInventorySize = 4;
-    [SerializeField][ReadOnly]
-    private int currentInventorySlotsOccupied = 0;
-    [ReadOnly][SerializeField]
-    private List<ItemDefinition> inventoryItems;
-    [SerializeField][TableMatrix][ReadOnly]
-    private ItemDefinition[,] inventoryItemArray = new ItemDefinition[2,2];
-
-    public delegate void UpdateUI();
-    public event UpdateUI updateUIEvent;
 
     #region Singleton
     private static InventoryManager instance;
@@ -39,6 +30,18 @@ public class InventoryManager : SerializedMonoBehaviour
         }
     }
     #endregion
+    [SerializeField]
+    private int maxInventorySize = 4;
+    [SerializeField][ReadOnly]
+    private int currentInventorySlotsOccupied = 0;
+    [ReadOnly][SerializeField]
+    private List<ItemDefinition> inventoryItems;
+    [SerializeField][TableMatrix][ReadOnly]
+    private ItemDefinition[,] inventoryItemArray = new ItemDefinition[2,2];
+
+    public delegate void UpdateUI();
+    public event UpdateUI updateUIEvent = delegate { };
+
 
     /*
      * This function will return true if the item slot type can be added to the inventory
@@ -216,7 +219,7 @@ public class InventoryManager : SerializedMonoBehaviour
                 }
             }
         }
-
+        updateUIEvent.Invoke();
         return true;
     }
 

@@ -1,24 +1,58 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Sirenix.OdinInspector;
 
+/*
+ * Class to handle events on the inventory UI
+ */
 public class InventoryUIManager : MonoBehaviour
 {
+    #region Singleton
+    private static InventoryUIManager instance;
+
+    public static InventoryUIManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<InventoryUIManager>();
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    obj.name = typeof(InventoryUIManager).Name;
+                    instance = obj.AddComponent<InventoryUIManager>();
+                }
+            }
+            return instance;
+        }
+    }
+    #endregion
+
     private GameObject[,] inventoryGrid;
 
     [SerializeField]
     private Sprite emptySlotSprite;
 
+    [Required][SerializeField]
+    private GameObject inventoryButtons;
+
+    public ItemDefinition inventorySelectedItem { get; private set; }
+
+
     public void Start()
     {
-        //subscribe to the inventory ui update event
-        InventoryManager.Instance.updateUIEvent += UpdateUI;
+        
+
         //get a reference to the inventory grid
         GameObject inventoryPanel = GameObject.Find("InventoryHolder");
         GridLayoutGroup gridLayout = inventoryPanel.GetComponent<GridLayoutGroup>();
         inventoryGrid = new GameObject[inventoryPanel.transform.childCount / gridLayout.constraintCount , gridLayout.constraintCount];
 
+        //deactivate the inventory buttons parent
+        inventoryButtons.SetActive(false);
+
+        //populate the inventory grid array
         int currChild = 0;
         for(int i = 0; i < inventoryPanel.transform.childCount / gridLayout.constraintCount; i++)
         {
@@ -28,6 +62,20 @@ public class InventoryUIManager : MonoBehaviour
                 currChild++;
             }
         }
+    }
+    public void OnEnable()
+    {
+        //subscribe to the inventory ui update event
+        InventoryManager.Instance.updateUIEvent += UpdateUI;
+        //subscribe to the inventory slot clicked event
+        InventorySlot.itemClicked += InventorySlotClicked;
+    }
+    public void OnDisable()
+    {
+        //subscribe to the inventory ui update event
+        InventoryManager.Instance.updateUIEvent -= UpdateUI;
+        //subscribe to the inventory slot clicked event
+        InventorySlot.itemClicked -= InventorySlotClicked;
     }
 
     /*
@@ -76,5 +124,37 @@ public class InventoryUIManager : MonoBehaviour
         }
 
         return emptySlotSprite;
+    }
+
+    /*
+     * Handles opening the inventory buttons when an inventory slot has been clicked. 
+     */
+    public void InventorySlotClicked(ItemDefinition selectedItem)
+    {
+        inventorySelectedItem = selectedItem;
+        if (inventorySelectedItem == null)
+        {
+            inventoryButtons.SetActive(false);
+        }
+        else if (!inventoryButtons.activeInHierarchy)
+        {
+            inventoryButtons.SetActive(true);
+        }
+    }
+
+    public void ItemUseSucessState(bool successState)
+    {
+        Debug.Log("Item use success state: " + successState);
+
+        /*
+         * In the event of an item use success, remove the item from the inventory, deselect it and deactivate the inventory buttons
+         */
+        if(successState)
+        {
+            InventoryManager.Instance.RemoveItemFromInventory(inventorySelectedItem);
+            inventorySelectedItem = null;
+            inventoryButtons.SetActive(false);
+        }
+
     }
 }

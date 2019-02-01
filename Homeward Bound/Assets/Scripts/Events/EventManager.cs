@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
+using System;
 
 public class EventManager : MonoBehaviour
 {
@@ -25,25 +25,38 @@ public class EventManager : MonoBehaviour
         }
     }
     #endregion
+    
+    public Action<ItemDefinition, Action<bool>> itemUsed;
 
-
+    [Required]
     public Scenario CurrentScenario;
 
     public void Awake()
     {
-        
+        itemUsed += EventTriggered;
+    }
+    public void OnDisable()
+    {
+        itemUsed -= EventTriggered;
     }
 
-    public void EventTriggered(ItemDefinition itemDefinition)
+    /*
+     * Called when the itemUsed function is invoked. Handles 
+     */
+    private void EventTriggered(ItemDefinition itemDefinition, Action<bool> callback)
     {
         if (CurrentScenario == null)
-            throw new System.Exception("CurrentScenario cannot be null");
+            throw new Exception("CurrentScenario cannot be null");
 
         if(CurrentScenario.Outcomes.ContainsKey(itemDefinition))
         {
             CurrentScenario.OutcomeTriggered(itemDefinition);
+            callback.Invoke(true);
         }
-
+        else
+        {
+            callback.Invoke(false);
+        }
     }
 
 }

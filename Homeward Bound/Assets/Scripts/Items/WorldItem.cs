@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class WorldItem : MonoBehaviour
 {
     [SerializeField]
     private ItemDefinition itemDefinition;
 
-    private void OnMouseUp()
+    public void OnMouseDown()
     {
-        InventoryManager.Instance.AddItemToInventory(itemDefinition);
-        gameObject.SetActive(false);
+        /* 
+            * Handle picking up the item
+            */
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            InventoryManager.Instance.AddItemToInventory(itemDefinition);
+            gameObject.SetActive(false);
+        }
     }
+
     //called when a variable is changed
     private void OnValidate()
     {

@@ -1,7 +1,6 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
-using System.Collections;
 
 [CreateAssetMenu(fileName ="New Scenario", menuName ="Create New Scenario", order = 1)]
 public class Scenario : SerializedScriptableObject
