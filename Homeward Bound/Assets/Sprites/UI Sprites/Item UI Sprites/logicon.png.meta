@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 81775b71b6b5d504db95a168fdcbc143
+guid: 6f8cbbbbc93bab049a6f766ca5ba342f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: torch UI_0
-    21300002: torch UI_1
+    21300000: logicon_0
+    21300002: logicon_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -86,13 +86,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: torch UI_0
+      name: logicon_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1102
-        width: 803
-        height: 1103
+        y: 0
+        width: 1000
+        height: 943
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -100,19 +100,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28f767100a8a22d4a8151c01bbb8780a
+      spriteID: 5107179084f293c40a89bced0733a767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: torch UI_1
+      name: logicon_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1000
         y: 0
-        width: 803
-        height: 1103
+        width: 1000
+        height: 943
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1098f37e37694ea47afe81e8035ba138
+      spriteID: 9573837de7508184fbe04dad999f5c3b
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: bff6c07dfc274b641ae545e746fd3e87
+    spriteID: 5f0ad655036265d4888b9c63963f9398
     vertices: []
     indices: 
     edges: []

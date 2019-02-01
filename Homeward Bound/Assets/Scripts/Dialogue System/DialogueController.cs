@@ -42,7 +42,7 @@ public class DialogueController : MonoBehaviour
 
     public System.Action dialogueBoxClicked;
 
-    public void Start()
+    public void Awake()
     {
         dialogueBox = GameObject.Find("DialogueBox");
         textComponent = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();

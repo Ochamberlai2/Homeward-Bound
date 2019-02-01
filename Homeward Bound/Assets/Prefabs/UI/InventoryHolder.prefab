@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7956431218170833293}
   - component: {fileID: 7956431218170833294}
   - component: {fileID: 7956431218170833295}
-  - component: {fileID: 6493087362603189817}
+  - component: {fileID: 458033272}
   m_Layer: 5
   m_Name: InventoryHolder
   m_TagString: Untagged
@@ -130,8 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af35ae7a314102842b2e109f2bc420e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptySlotSprite: {fileID: 21300000, guid: 0d48ba65a4d3d0b408b3f08bbfb70b54, type: 3}
---- !u!222 &6493087362603189817
+  emptySlotSprite: {fileID: 21300000, guid: e8739410cc217e844bc13c31b7f0b4a4, type: 3}
+  inventoryButtons: {fileID: 0}
+--- !u!222 &458033272
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -630,6 +631,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992665631205166707, guid: c280af73ba3e82f4f9efbb21c8323f9e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c280af73ba3e82f4f9efbb21c8323f9e, type: 3}
