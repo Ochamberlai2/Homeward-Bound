@@ -9,45 +9,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 437cb0124f107414f99a218b8440b5cb, type: 3}
-  m_Name: Scenario1
+  m_Script: {fileID: 11500000, guid: cae2743a54cb07243803c257cc6602ef, type: 3}
+  m_Name: Dialogue Database
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 53b290ede00993e418600bdbca731470, type: 2}
-    - {fileID: 11400000, guid: d72f63b0d3c3f81478e2396620062f3f, type: 2}
-    - {fileID: 11400000, guid: 319afb775abfad1419ed314d3b6aa634, type: 2}
-    - {fileID: 11400000, guid: c88ed5c5831bab844a105be311552eb5, type: 2}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: Outcomes
+    - Name: database
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[ItemDefinition, Assembly-CSharp],[Scenario,
-        Assembly-CSharp]], mscorlib
+      Data: 0|NUnit.Framework.Interfaces.AttributeDictionary, nunit.framework
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[ItemDefinition,
-        Assembly-CSharp]], mscorlib
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
     - Name: 
-      Entry: 10
-      Data: 0
+      Entry: 1
+      Data: dialogue1
     - Name: 
-      Entry: 10
-      Data: 1
+      Entry: 1
+      Data: I like to type things
     - Name: 
       Entry: 8
       Data: 
@@ -55,11 +50,23 @@ MonoBehaviour:
       Entry: 7
       Data: 
     - Name: 
-      Entry: 10
-      Data: 2
+      Entry: 1
+      Data: dialogue2
     - Name: 
-      Entry: 10
-      Data: 3
+      Entry: 1
+      Data: I like to type things a lot
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 1
+      Data: dialogue3
+    - Name: 
+      Entry: 1
+      Data: I like to type things a loooooooooooooooooooot
     - Name: 
       Entry: 8
       Data: 
@@ -69,5 +76,3 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Actions: []
-  dialogueKey: dialogue1
