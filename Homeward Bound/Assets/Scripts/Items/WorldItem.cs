@@ -4,17 +4,19 @@ using UnityEngine.EventSystems;
 public class WorldItem : MonoBehaviour
 {
     [SerializeField]
-    private ItemDefinition itemDefinition;
+    public ItemDefinition itemDefinition;
 
     public void OnMouseDown()
     {
         /* 
-            * Handle picking up the item
-            */
+        * Handle picking up the item
+        */
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            InventoryManager.Instance.AddItemToInventory(itemDefinition);
-            gameObject.SetActive(false);
+            if(InventoryManager.Instance.AddItemToInventory(itemDefinition))
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 

@@ -6,6 +6,8 @@ using System.Collections;
  */
 public class InventoryButtonEvents : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject itemPrefab;
     /*
      * Handle the use item button click event
      */
@@ -26,8 +28,7 @@ public class InventoryButtonEvents : MonoBehaviour
         ItemDefinition item = inventoryUIManager.inventorySelectedItem;
         //remove item from inventory
         InventoryManager.Instance.RemoveItemFromInventory(item);
-        Debug.Log("Didn't need that " + item.name + " anymore anyway!");
-        
+        Debug.Log("Didn't need that " + item.name + " anymore anyway!")
         inventoryUIManager.CloseInventoryButtons();
     }
 

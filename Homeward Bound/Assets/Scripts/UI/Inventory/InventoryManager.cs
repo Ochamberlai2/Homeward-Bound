@@ -75,9 +75,9 @@ public class InventoryManager : SerializedMonoBehaviour
             return false;
         }
 
-        PlaceItemInSlot(itemToAdd);
+        return PlaceItemInSlot(itemToAdd);
 
-        return true;
+        
 
         /*
         * If there is an open slot (e.g the slot type is horizontal and it can slot the horizontal item into the inventory without moving any items) return true. 
@@ -149,7 +149,7 @@ public class InventoryManager : SerializedMonoBehaviour
         /*
         * Will find the empty slots and will place an item into them.
         */ 
-        void PlaceItemInSlot(ItemDefinition item)
+        bool PlaceItemInSlot(ItemDefinition item)
         {
 
             if(item.SlotType != Constants.InventorySlotType.Single)
@@ -161,7 +161,7 @@ public class InventoryManager : SerializedMonoBehaviour
 
             if (openPositions.Count == 0)
             {
-                return;
+                return false;
             }
 
             if (item.SlotType == Constants.InventorySlotType.Single)
@@ -178,6 +178,7 @@ public class InventoryManager : SerializedMonoBehaviour
                 inventoryItems.Add(item);
             }
             updateUIEvent.Invoke();
+            return true;
         }
     }
 

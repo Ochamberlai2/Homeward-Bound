@@ -404,9 +404,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Use
-
-'
+  m_Text: Use
 --- !u!1 &2413322809753194824
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +512,7 @@ RectTransform:
   m_GameObject: {fileID: 2413322810314509729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2413322809554185205}
   - {fileID: 2413322809334724185}
@@ -550,8 +548,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 5
     m_Right: 5
-    m_Top: 0
-    m_Bottom: 0
+    m_Top: 5
+    m_Bottom: 5
   m_ChildAlignment: 3
   m_Spacing: 5
   m_ChildForceExpandWidth: 1
@@ -570,6 +568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb3f20b983892d46ad07fee80c38053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 6553252312754334524, guid: 1c4ff87a3395e6146a2d412bf796b79b,
+    type: 3}
 --- !u!1 &2413322811065381341
 GameObject:
   m_ObjectHideFlags: 0
