@@ -4,7 +4,7 @@ using UnityEngine;
 /*
  * Base class for actions. These are simple one step actions such as playing an animation or lerping to a position
  */
-public abstract class Action : ScriptableObject
+public abstract class ScenarioAction : ScriptableObject
 {
 
     public bool ActionCompleted { get; private set; }
@@ -14,6 +14,6 @@ public abstract class Action : ScriptableObject
         ActionFunction();
     }
 
-    protected abstract IEnumerator ActionFunction();
+    protected abstract void ActionFunction();
     
 }

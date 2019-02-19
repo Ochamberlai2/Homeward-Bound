@@ -863,9 +863,7 @@ MonoBehaviour:
   cameraPositions:
   - {fileID: 1012742761}
   - {fileID: 1851460260}
-  - {fileID: 1686330862}
   - {fileID: 2091001991}
-  - {fileID: 1639089819}
   cameraMovementSpeed: 5
 --- !u!1 &95305046
 GameObject:
@@ -11173,13 +11171,13 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2008908448}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2008908447}
-        m_MethodName: set_enabled
+        m_MethodName: set_interactable
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -7,7 +7,7 @@ public class Scenario : SerializedScriptableObject
 {
 
     [InfoBox("List of actions to be fired when the scenario is triggered.")]
-    public Action[] Actions;
+    public ScenarioAction[] Actions;
 
     [InfoBox("Dictionary of outcomes for the scenario. If the key (the item) is used, then the value (the scenario) will be triggered")]
     public Dictionary<ItemDefinition, Scenario> Outcomes;

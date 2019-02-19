@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,7 @@ using UnityEngine;
  */
 public class CameraMovement : MonoBehaviour
 {
+    public static Button CameraMovementButton { get; private set; }
 
     private Camera camToMove;
 
@@ -20,10 +21,12 @@ public class CameraMovement : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         camToMove = Camera.main;
+        CameraMovementButton = GameObject.Find("CameraMovementButton").GetComponent<Button>();
     }
 
    /*
@@ -36,7 +39,10 @@ public class CameraMovement : MonoBehaviour
             StopAllCoroutines();
             return;
         }
-
+        else if(camPositionIndex + 2 == cameraPositions.Count)
+        {
+            CameraMovementButton.interactable = false;
+        }
         StartCoroutine(Utils.LerpBetweenTransformsOverTime(camToMove.transform, cameraPositions[camPositionIndex], cameraPositions[camPositionIndex +1], cameraMovementSpeed, true));
         camPositionIndex++;
     }
