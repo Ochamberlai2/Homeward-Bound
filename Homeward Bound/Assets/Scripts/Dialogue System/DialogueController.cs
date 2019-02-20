@@ -40,6 +40,9 @@ public class DialogueController : MonoBehaviour
     [SerializeField]
     private DialogueDatabase dialogueDatabase;
 
+    private string currentDialogueKey;
+
+
     public System.Action dialogueBoxClicked;
 
     public void Awake()
@@ -91,7 +94,7 @@ public class DialogueController : MonoBehaviour
     public void ShowDialogue(string key)
     {
         string dialogueLine = RetrieveDialogueLine(key);
-
+        currentDialogueKey = key;
         ToggleDialoguePane(true);
 
         StartCoroutine(writeTextToScreen(dialogueLine));
@@ -102,7 +105,7 @@ public class DialogueController : MonoBehaviour
      */
     public void DialogueClicked()
     {
-        string dialogueLine = RetrieveDialogueLine(EventManager.Instance.CurrentScenario.dialogueKey);
+        string dialogueLine = RetrieveDialogueLine(currentDialogueKey);
         if (textComponent.text != dialogueLine)
         {
             StopAllCoroutines();
