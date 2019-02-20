@@ -12,7 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfcc466fd338014480eb27cbdddd994, type: 3}
   m_Name: Mushroom
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: itemCombinationRecipes
+      Entry: 6
+      Data: 
+  itemName: Mushroom
   itemSprite: {fileID: 21300000, guid: 995594285cdc0db43a73ff338196cf4f, type: 3}
   uiSprite: {fileID: 21300000, guid: a22b5a00f93a6f24e9415a0178d9c213, type: 3}
-  uiSprites: []
   SlotType: 0
+  uiSprites: []

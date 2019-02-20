@@ -28,7 +28,10 @@ public class InventoryButtonEvents : MonoBehaviour
         ItemDefinition item = inventoryUIManager.inventorySelectedItem;
         //remove item from inventory
         InventoryManager.Instance.RemoveItemFromInventory(item);
-        Debug.Log("Didn't need that " + item.name + " anymore anyway!")
+        Debug.Log("Didn't need that " + item.name + " anymore anyway!");
+
+        WorldItem.SpawnWorldItem(item, itemPrefab);
+
         inventoryUIManager.CloseInventoryButtons();
     }
 

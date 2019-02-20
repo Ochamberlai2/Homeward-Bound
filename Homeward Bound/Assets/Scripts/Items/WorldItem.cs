@@ -3,8 +3,20 @@ using UnityEngine.EventSystems;
 
 public class WorldItem : MonoBehaviour
 {
-    [SerializeField]
     public ItemDefinition itemDefinition;
+
+
+    public static GameObject SpawnWorldItem(ItemDefinition item, GameObject itemPrefab)
+    {
+
+        GameObject worldItem = Instantiate(itemPrefab, PlayerCharacterController.PlayerCharacterTransform.position, Quaternion.identity) as GameObject;
+        worldItem.GetComponent<WorldItem>().itemDefinition = item;
+        worldItem.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
+        worldItem.name = item.itemName;
+        Utils.ResetBoxCollider2DBoundsToSpriteBounds(worldItem.GetComponent<BoxCollider2D>(), item.itemSprite);
+
+        return worldItem;
+    }
 
     public void OnMouseDown()
     {
@@ -15,7 +27,7 @@ public class WorldItem : MonoBehaviour
         {
             if(InventoryManager.Instance.AddItemToInventory(itemDefinition))
             {
-                gameObject.SetActive(false);
+                Destroy(gameObject);
             }
         }
     }

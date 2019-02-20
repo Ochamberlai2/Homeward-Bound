@@ -12,7 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfcc466fd338014480eb27cbdddd994, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: itemCombinationRecipes
+      Entry: 6
+      Data: 
+  itemName: Apple
   itemSprite: {fileID: 21300000, guid: 2132f305750e0354abc4819dbbf627d6, type: 3}
   uiSprite: {fileID: 21300000, guid: ce465dab0a1d5af4eb543c5ce5f58cd6, type: 3}
-  uiSprites: []
   SlotType: 0
+  uiSprites: []

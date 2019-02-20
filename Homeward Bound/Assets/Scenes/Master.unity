@@ -5244,6 +5244,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 87371314217328330, guid: 1051040fbec92a340842a4811c3c2b62,
+        type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1051040fbec92a340842a4811c3c2b62, type: 3}
 --- !u!1 &818172540
@@ -10134,7 +10139,7 @@ GameObject:
   m_Layer: 0
   m_Name: CurrentCharacter
   m_TagString: Untagged
-  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
