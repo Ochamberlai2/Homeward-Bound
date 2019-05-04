@@ -25,7 +25,7 @@ public class WorldItem : MonoBehaviour
         */
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if(InventoryManager.Instance.AddItemToInventory(itemDefinition))
+            if (InventoryManager.Instance.AddItemToInventory(itemDefinition))
             {
                 Destroy(gameObject);
             }

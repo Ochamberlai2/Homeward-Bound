@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
+using System;
 
 /*
  * Class to handle events on the inventory UI
@@ -38,6 +39,9 @@ public class InventoryUIManager : MonoBehaviour
     private GameObject inventoryButtons;
 
     public ItemDefinition inventorySelectedItem { get; private set; }
+
+
+    public event Action<ItemDefinition> SecondInventoryItemClicked;
 
 
     public void Start()
@@ -131,14 +135,23 @@ public class InventoryUIManager : MonoBehaviour
      */
     public void InventorySlotClicked(ItemDefinition selectedItem)
     {
-        inventorySelectedItem = selectedItem;
-        if (inventorySelectedItem == null)
+        //Combine items has already been clicked
+        if(InventoryManager.Instance.WaitingForCombinedItemClick)
         {
-            CloseInventoryButtons();
+            SecondInventoryItemClicked.Invoke(selectedItem);
         }
-        else if (!inventoryButtons.activeInHierarchy)
+        //if combine items hasnt been clicked, toggle the inventory buttons.
+        else
         {
-            inventoryButtons.SetActive(true);
+            inventorySelectedItem = selectedItem;
+            if (inventorySelectedItem == null)
+            {
+                CloseInventoryButtons();
+            }
+            else if (!inventoryButtons.activeInHierarchy)
+            {
+                inventoryButtons.SetActive(true);
+            }
         }
     }
 

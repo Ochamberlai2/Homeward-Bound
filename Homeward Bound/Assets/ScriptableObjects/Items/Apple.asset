@@ -15,14 +15,58 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 319afb775abfad1419ed314d3b6aa634, type: 2}
+    - {fileID: 11400000, guid: 1e3a868201d37c34c89ddf231217b6b2, type: 2}
+    - {fileID: 11400000, guid: 6a1f16b56dd602f408c4c500b0f568af, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: itemCombinationRecipes
-      Entry: 6
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[ItemDefinition, Assembly-CSharp],[ItemDefinition,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[ItemDefinition,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
   itemName: Apple
   itemSprite: {fileID: 21300000, guid: 2132f305750e0354abc4819dbbf627d6, type: 3}
