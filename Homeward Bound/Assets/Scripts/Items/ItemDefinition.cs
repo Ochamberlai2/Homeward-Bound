@@ -9,6 +9,7 @@ using System.Collections.Generic;
 public class ItemDefinition : SerializedScriptableObject
 {
 
+    public string itemName;
     public Sprite itemSprite;
     [HideIf("ShowSingleSprite")]
     public Sprite uiSprite;

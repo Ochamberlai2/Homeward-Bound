@@ -3,18 +3,32 @@ using UnityEngine.EventSystems;
 
 public class WorldItem : MonoBehaviour
 {
-    [SerializeField]
-    private ItemDefinition itemDefinition;
+    public ItemDefinition itemDefinition;
+
+
+    public static GameObject SpawnWorldItem(ItemDefinition item, GameObject itemPrefab)
+    {
+
+        GameObject worldItem = Instantiate(itemPrefab, PlayerCharacterController.PlayerCharacterTransform.position, Quaternion.identity) as GameObject;
+        worldItem.GetComponent<WorldItem>().itemDefinition = item;
+        worldItem.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
+        worldItem.name = item.itemName;
+        Utils.ResetBoxCollider2DBoundsToSpriteBounds(worldItem.GetComponent<BoxCollider2D>(), item.itemSprite);
+
+        return worldItem;
+    }
 
     public void OnMouseDown()
     {
         /* 
-            * Handle picking up the item
-            */
+        * Handle picking up the item
+        */
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            InventoryManager.Instance.AddItemToInventory(itemDefinition);
-            gameObject.SetActive(false);
+            if (InventoryManager.Instance.AddItemToInventory(itemDefinition))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -32,4 +32,14 @@ public static class Utils
             }
         }
     }
+
+    /*
+     * Takes in a BoxCollider2D and a sprite and sets the box collider's size to the bounds of the sprite
+     */
+    public static void ResetBoxCollider2DBoundsToSpriteBounds(BoxCollider2D collider, Sprite sprite)
+    {
+        Vector2 spriteBounds = sprite.bounds.size;
+
+        collider.size = spriteBounds;
+    }
 }

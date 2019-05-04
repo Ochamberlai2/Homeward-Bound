@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerCharacterController : MonoBehaviour
 {
+
+    public static Transform PlayerCharacterTransform { get; private set; }
+
     [SerializeField]
     private KeyCode movementKey;
 
@@ -18,6 +21,7 @@ public class PlayerCharacterController : MonoBehaviour
     {
         mainCam = Camera.main;
         characterAnimator = GetComponentInChildren<Animator>();
+        PlayerCharacterTransform = transform;
     }
 
     // Update is called once per frame
@@ -50,31 +54,31 @@ public class PlayerCharacterController : MonoBehaviour
     {
         Vector2 startPos = transform.position;
         //if we arent moving anywhere, return
-        if (targetLocation.x == startPos.x)
-            yield return null;
-
-       
-
-        Vector2 endPos = targetLocation.SetY(startPos.y);
-        float startTime = Time.time;
-        float journeyLength = Vector2.Distance(startPos, endPos);
-
-        float distCovered;
-        float fracCompleted;
-
-        //start run animation
-        characterAnimator.SetBool("Running", true);
-        do
+        if (targetLocation.x != startPos.x)
         {
-            distCovered = (Time.time - startTime) * movementSpeed;
-            fracCompleted = distCovered / journeyLength;
 
-            transform.position = Vector2.Lerp(startPos, endPos, fracCompleted);
-            yield return new WaitForFixedUpdate();
-        } while (fracCompleted < 1);
+            Vector2 endPos = targetLocation.SetY(startPos.y);
+            float startTime = Time.time;
+            float journeyLength = Vector2.Distance(startPos, endPos);
 
-        //stop animation
-        characterAnimator.SetBool("Running", false);
+            float distCovered;
+            float fracCompleted;
+
+            //start run animation
+            characterAnimator.SetBool("Running", true);
+            do
+            {
+                distCovered = (Time.time - startTime) * movementSpeed;
+                fracCompleted = distCovered / journeyLength;
+
+                transform.position = Vector2.Lerp(startPos, endPos, fracCompleted);
+                yield return new WaitForFixedUpdate();
+            } while (fracCompleted < 1);
+
+            //stop animation
+            characterAnimator.SetBool("Running", false);
+        }
+        yield return null;
     }
 
 
